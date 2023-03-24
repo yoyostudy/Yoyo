@@ -1,3 +1,1 @@
-# 🐹 Yoyo
-
-Hi there 🍺, this is Yoyo's Github Repository 🌹
+# Hi there 🍻, nice to see you 🌷
