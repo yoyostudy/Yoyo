@@ -1,24 +1,20 @@
-name: Update LeetCode stats
+name: leetcode-solved-problem-tracker
+uses: nurgasemetey/leetcode-solved-problem-tracker@v1.6
+
 on:
   workflow_dispatch:
   schedule:
     - cron: '0 * * * *'
 jobs:
-  update-stats:
+  leetcode_solved_problem_tracker:
     runs-on: ubuntu-latest
+    name: Save each day's solved problem counts
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v2
+      - name: leetcode-solved-problem-tracker step
+        id: hello
+        uses: nurgasemetey/leetcode-solved-problem-tracker@v1.6
         with:
-          node-version: '14.x'
-      - name: Install leetcode-stats
-        run: npm install -g leetcode-stats
-      - name: Update stats
-        run: leetcode-stats update --username=yoyo_study_version --format=markdown > README.md
-      - name: Commit and push changes
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "Update LeetCode stats"
-          commit_options: "--author=yoyostudy --signoff"
+          username: ${{ secrets.LEETCODE_USERNAME }} # if you want to hide your username
+          github-token: ${{ secrets.GITHUB_TOKEN }} # no need to generate token, it is generated automatically when you use action
+
