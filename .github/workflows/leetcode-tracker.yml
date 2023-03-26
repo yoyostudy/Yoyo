@@ -1,21 +1,25 @@
-name: leetcode-solved-problem-tracker
-uses: nurgasemetey/leetcode-solved-problem-tracker@v1.6
-
+name: LeetCode Status
 
 on:
   schedule:
-    # * is a special character in YAML so you have to quote this string
-    - cron:  '0 3 * * *' # according to UTC
+    - cron: '0 0 * * *' # Runs at midnight every day
 
 jobs:
-  leetcode_solved_problem_tracker:
+  update-readme:
     runs-on: ubuntu-latest
-    name: Save each day's solved problem counts
     steps:
-      - uses: actions/checkout@v2
-      - name: leetcode-solved-problem-tracker step
-        id: hello
-        uses: nurgasemetey/leetcode-solved-problem-tracker@v1.6
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
         with:
-          username: ${{ secrets.LEETCODE_USERNAME }} # if you want to hide your username
-          github-token: ${{ secrets.GITHUB_TOKEN }} # no need to generate token, it is generated automatically when you use action
+          node-version: '16'
+      - name: Install dependencies
+        run: |
+          npm install
+      - name: Update README.md
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LEETCODE_TOKEN: ${{ secrets.LEETCODE_TOKEN }}
+        run: |
+          npx leetcode-status update-readme
