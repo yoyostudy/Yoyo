@@ -5,7 +5,7 @@ uses: nurgasemetey/leetcode-solved-problem-tracker@v1.6
 on:
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '0 0 * * *' # according to UTC
+    - cron:  '0 3 * * *' # according to UTC
 
 jobs:
   leetcode_solved_problem_tracker:
