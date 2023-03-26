@@ -1,0 +1,21 @@
+name: LeetCode Solved Problem Tracker
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs at midnight every day
+  workflow_dispatch:
+
+jobs:
+  update_readme:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: LeetCode Solved Problem Tracker
+      uses: miraoto/leetcode-solved-problem-tracker@v2.2
+      with:
+        leetcode_username: ${{ secrets.LEETCODE_USERNAME }}
+        leetcode_password: ${{ secrets.LEETCODE_PASSWORD }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        update_frequency: 'daily'
