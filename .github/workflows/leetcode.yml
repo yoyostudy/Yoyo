@@ -1,5 +1,4 @@
 name: leetcode-solved-problem-tracker
-uses: nurgasemetey/leetcode-solved-problem-tracker@v1.6
 
 on:
   workflow_dispatch:
