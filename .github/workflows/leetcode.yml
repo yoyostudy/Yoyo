@@ -1,0 +1,23 @@
+name: Update LeetCode stats
+on:
+  schedule:
+    - cron: '0 * * * *'
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+      - name: Install leetcode-stats
+        run: npm install -g leetcode-stats
+      - name: Update stats
+        run: leetcode-stats update --username=yoyo_study_version --format=markdown > README.md
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Update LeetCode stats"
+          commit_options: "--author=yoyostudy --signoff"
