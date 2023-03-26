@@ -1,21 +1,21 @@
-name: LeetCode Solved Problem Tracker
+name: leetcode-solved-problem-tracker
+uses: nurgasemetey/leetcode-solved-problem-tracker@v1.6
+
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Runs at midnight every day
-  workflow_dispatch:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '0 0 * * *' # according to UTC
 
 jobs:
-  update_readme:
+  leetcode_solved_problem_tracker:
     runs-on: ubuntu-latest
+    name: Save each day's solved problem counts
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-
-    - name: LeetCode Solved Problem Tracker
-      uses: miraoto/leetcode-solved-problem-tracker@v2.2
-      with:
-        leetcode_username: ${{ secrets.LEETCODE_USERNAME }}
-        leetcode_password: ${{ secrets.LEETCODE_PASSWORD }}
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        update_frequency: 'daily'
+      - uses: actions/checkout@v2
+      - name: leetcode-solved-problem-tracker step
+        id: hello
+        uses: nurgasemetey/leetcode-solved-problem-tracker@v1.6
+        with:
+          username: ${{ secrets.LEETCODE_USERNAME }} # if you want to hide your username
+          github-token: ${{ secrets.GITHUB_TOKEN }} # no need to generate token, it is generated automatically when you use action
