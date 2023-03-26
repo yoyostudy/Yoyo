@@ -1,0 +1,25 @@
+name: LeetCode Status
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs at midnight every day
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: Install dependencies
+        run: |
+          npm install
+      - name: Update README.md
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LEETCODE_TOKEN: ${{ secrets.LEETCODE_TOKEN }}
+        run: |
+          npx leetcode-status update-readme
