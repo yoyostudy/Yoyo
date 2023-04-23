@@ -3,6 +3,7 @@
 About me:
 
 - 5 years' coding experience
-- struggling to find a job
-- 🌞 Life is a wilderness, not a track. 
+- 💗 I love sleeping, music and math
+- 🎯 Now struggling to find a job
+- 🌞 Belive that life is a wilderness, not a track. 
 
