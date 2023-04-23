@@ -1,5 +1,8 @@
 ## 🍺 Bonjour!
-# Hi 👏 I am currently a Master Student in CS@SFU
-A few things about me:
-- Life is a wilderness, not a track. 
+
+About:
+
+- 5 years' coding experience
+- struggling to find a job
+- 🌞 Life is a wilderness, not a track. 
 
