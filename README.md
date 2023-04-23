@@ -1,6 +1,6 @@
 ## 🍺 Bonjour!
 
-About:
+About me:
 
 - 5 years' coding experience
 - struggling to find a job
