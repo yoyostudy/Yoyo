@@ -8,3 +8,4 @@ About me:
 - 🌲 Believe that life is a wilderness, not a track
 - 🐶 Currently learning everything
 
+Python $\cdot$ C++ $\cdot$ Java
